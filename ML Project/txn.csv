@@ -1,0 +1,4 @@
+account_id, txn_id, amount, dr_cr, txn_date, comments
+A030034, T034343, 10, D, 23-mar-2020 10:00:34, Buying for investment
+A030035, T034346, 11, C, 23-mar-2020 11:00:34, Buying for compliance
+

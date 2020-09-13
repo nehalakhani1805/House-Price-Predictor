@@ -1,0 +1,487 @@
+<?xml version="1.0"?>
+<AlteryxDocument yxmdVer="2019.3">
+  <Nodes>
+    <Node ToolID="1">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileInput.DbFileInput">
+        <Position x="54" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Passwords />
+          <File OutputFileName="" RecordLimit="" SearchSubDirs="False" FileFormat="0">C:\Users\NEHA LAKHANI\Documents\ML Project\Bengaluru_House_Data_Unclean.csv</File>
+          <FormatSpecificOptions>
+            <CodePage>28591</CodePage>
+            <Delimeter>,</Delimeter>
+            <IgnoreErrors>False</IgnoreErrors>
+            <FieldLen>254</FieldLen>
+            <AllowShareWrite>False</AllowShareWrite>
+            <HeaderRow>True</HeaderRow>
+            <IgnoreQuotes>DoubleQuotes</IgnoreQuotes>
+            <ImportLine>1</ImportLine>
+          </FormatSpecificOptions>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Bengaluru_House_Data_Unclean.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="area_type" size="254" source="File: C:\Users\NEHA LAKHANI\Documents\ML Project\Bengaluru_House_Data_Unclean.csv" type="V_String" />
+            <Field name="availability" size="254" source="File: C:\Users\NEHA LAKHANI\Documents\ML Project\Bengaluru_House_Data_Unclean.csv" type="V_String" />
+            <Field name="location" size="254" source="File: C:\Users\NEHA LAKHANI\Documents\ML Project\Bengaluru_House_Data_Unclean.csv" type="V_String" />
+            <Field name="size" size="254" source="File: C:\Users\NEHA LAKHANI\Documents\ML Project\Bengaluru_House_Data_Unclean.csv" type="V_String" />
+            <Field name="society" size="254" source="File: C:\Users\NEHA LAKHANI\Documents\ML Project\Bengaluru_House_Data_Unclean.csv" type="V_String" />
+            <Field name="total_sqft" size="254" source="File: C:\Users\NEHA LAKHANI\Documents\ML Project\Bengaluru_House_Data_Unclean.csv" type="V_String" />
+            <Field name="bath" size="254" source="File: C:\Users\NEHA LAKHANI\Documents\ML Project\Bengaluru_House_Data_Unclean.csv" type="V_String" />
+            <Field name="balcony" size="254" source="File: C:\Users\NEHA LAKHANI\Documents\ML Project\Bengaluru_House_Data_Unclean.csv" type="V_String" />
+            <Field name="price" size="254" source="File: C:\Users\NEHA LAKHANI\Documents\ML Project\Bengaluru_House_Data_Unclean.csv" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileInput" />
+    </Node>
+    <Node ToolID="9">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.AlteryxSelect.AlteryxSelect">
+        <Position x="666" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <OrderChanged value="False" />
+          <CommaDecimal value="False" />
+          <SelectFields>
+            <SelectField field="location" selected="True" />
+            <SelectField field="total_sqft" selected="True" type="Float" size="4" />
+            <SelectField field="bath" selected="True" type="Int32" size="4" />
+            <SelectField field="balcony" selected="True" type="Int32" size="4" />
+            <SelectField field="price" selected="True" type="Float" size="4" />
+            <SelectField field="BHK" selected="True" type="Int16" size="2" />
+            <SelectField field="sqft" selected="False" type="Int64" size="8" />
+            <SelectField field="*Unknown" selected="False" />
+          </SelectFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxSelect" />
+    </Node>
+    <Node ToolID="10">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.TextToColumns.TextToColumns">
+        <Position x="222" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Field>size</Field>
+          <ErrorHandling>Last</ErrorHandling>
+          <RootName>BHK</RootName>
+          <Delimeters value=" " />
+          <NumFields value="2" />
+          <Flags value="0" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxTextToColumns" />
+    </Node>
+    <Node ToolID="11">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
+        <Position x="306" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RenameMode>Remove</RenameMode>
+          <Fields orderChanged="False">
+            <Field name="BHK1" />
+            <Field name="area_type" selected="False" />
+            <Field name="availability" selected="False" />
+            <Field name="location" selected="False" />
+            <Field name="size" selected="False" />
+            <Field name="society" selected="False" />
+            <Field name="total_sqft" selected="False" />
+            <Field name="bath" selected="False" />
+            <Field name="balcony" selected="False" />
+            <Field name="price" selected="False" />
+            <Field name="BHK2" selected="False" />
+            <Field name="*Unknown" selected="False" />
+          </Fields>
+          <Expression />
+          <RemovePrefixSuffix>
+            <Type>Suffix</Type>
+            <Text>1</Text>
+            <OnError>Warn</OnError>
+          </RemovePrefixSuffix>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="area_type" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="availability" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="location" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="size" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="society" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="total_sqft" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="bath" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="balcony" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="price" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from size" name="BHK" size="254" source="TextToColumns: Parsed from size" type="V_String" />
+            <Field description="TextToColumns: Parsed from size" name="BHK2" size="254" source="TextToColumns: Parsed from size" type="V_String" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicRename" />
+    </Node>
+    <Node ToolID="12">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="402" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="IF  Contains([total_sqft],&quot;-&quot;) THEN&#xA;((ToNumber(Left([total_sqft],FindString([total_sqft],&quot;-&quot;)))+ ToNumber(Right([total_sqft],FindString([total_sqft],&quot;-&quot;))))/2)&#xA;ELSE [total_sqft] ENDIF&#xA;&#xA;" field="total_sqft1" size="1073741823" type="V_WString" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>total_sqft1 = IF  Contains([total_sqft],"-") THEN
+((ToNumber(Left([total_sqft],F...</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="13">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="498" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression><![CDATA[[total_sqft1] = RegEx_Replace([total_sqft1], "[A-Za-z]","")
+]]></Expression>
+          <Mode>Custom</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>
+            </Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2020-01-13 23:28:00</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2020-01-13 23:28:00</StartDate>
+              <EndDate>2020-01-13 23:28:00</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[[total_sqft1] = RegEx_Replace([total_sqft1], "[A-Za-z]","")
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="14">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DynamicRename.DynamicRename">
+        <Position x="594" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <RenameMode>Remove</RenameMode>
+          <Fields orderChanged="False">
+            <Field name="total_sqft1" />
+            <Field name="area_type" selected="False" />
+            <Field name="availability" selected="False" />
+            <Field name="location" selected="False" />
+            <Field name="size" selected="False" />
+            <Field name="society" selected="False" />
+            <Field name="total_sqft" selected="False" />
+            <Field name="bath" selected="False" />
+            <Field name="balcony" selected="False" />
+            <Field name="price" selected="False" />
+            <Field name="BHK" selected="False" />
+            <Field name="BHK2" selected="False" />
+            <Field name="*Unknown" selected="False" />
+          </Fields>
+          <Expression />
+          <RemovePrefixSuffix>
+            <Type>Suffix</Type>
+            <Text>1</Text>
+            <OnError>Warn</OnError>
+          </RemovePrefixSuffix>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="area_type" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="availability" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="location" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="size" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="society" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="total_sqft" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="bath" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="balcony" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field name="price" size="254" source="Formula: [_CurrentField_]" type="V_String" />
+            <Field description="TextToColumns: Parsed from size" name="BHK" size="254" source="TextToColumns: Parsed from size" type="V_String" />
+            <Field description="TextToColumns: Parsed from size" name="BHK2" size="254" source="TextToColumns: Parsed from size" type="V_String" />
+            <Field name="total_sqft2" size="1073741823" source="Formula: IF  Contains([total_sqft],&quot;-&quot;) THEN&#xA;((ToNumber(Left([total_sqft],FindString([total_sqft],&quot;-&quot;)))+ ToNumber(Right([total_sqft],FindString([total_sqft],&quot;-&quot;))))/2)&#xA;ELSE [total_sqft] ENDIF&#xA;&#xA;" type="V_WString" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDynamicRename" />
+    </Node>
+    <Node ToolID="15">
+      <GuiSettings>
+        <Position x="138" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="List Box (11)">"area_type","availability","location","size","society","total_sqft","bath","balcony","price"</Value>
+          <Value name="Check Box (84)">False</Value>
+          <Value name="Check Box (117)">False</Value>
+          <Value name="Check Box (15)">True</Value>
+          <Value name="Check Box (109)">False</Value>
+          <Value name="Check Box (122)">False</Value>
+          <Value name="Check Box (53)">False</Value>
+          <Value name="Check Box (58)">False</Value>
+          <Value name="Check Box (70)">False</Value>
+          <Value name="Check Box (77)">False</Value>
+          <Value name="Drop Down (81)">upper</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings Macro="Cleanse.yxmc" />
+    </Node>
+    <Node ToolID="17">
+      <GuiSettings>
+        <Position x="834" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Value name="listbox Select Incoming Fields">"balcony"</Value>
+          <Value name="radio Null Value">True</Value>
+          <Value name="radio User Specified Replace From Value">False</Value>
+          <Value name="updown User Replace Value">0.00000</Value>
+          <Value name="radio Mean">False</Value>
+          <Value name="radio Median">False</Value>
+          <Value name="radio Mode">False</Value>
+          <Value name="radio User Specified Replace With Value">True</Value>
+          <Value name="updown User Replace With Value">0.00000</Value>
+          <Value name="checkbox Impute Indicator">False</Value>
+          <Value name="checkbox Imputed Values Separate Field">False</Value>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText />
+          <Left value="False" />
+        </Annotation>
+        <MetaInfo connection="Output">
+          <RecordInfo>
+            <Field name="location" size="254" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Ind).*') &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="V_String" />
+            <Field name="total_sqft" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Ind).*') &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="Double" />
+            <Field name="bath" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Ind).*') &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="Double" />
+            <Field name="balcony" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Ind).*') &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="Double" />
+            <Field name="price" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Ind).*') &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="Double" />
+            <Field name="BHK" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Ind).*') &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="Double" />
+            <Field name="price_per_sqft" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Ind).*') &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="Double" />
+            <Field name="per_room_sqft" source="Formula: IF &#xA;REGEX_Match([_CurrentFieldName_], '.*(?:_Ind).*') &amp;&amp; IsNull([_CurrentField_]) THEN &#xA;  0 &#xA;ELSE &#xA;  [_CurrentField_] &#xA;ENDIF" type="Double" />
+          </RecordInfo>
+        </MetaInfo>
+      </Properties>
+      <EngineSettings Macro="Imputation_v2.yxmc" />
+    </Node>
+    <Node ToolID="18">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Formula.Formula">
+        <Position x="750" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <FormulaFields>
+            <FormulaField expression="[price]*100000/[total_sqft]" field="price_per_sqft" size="4" type="Float" />
+            <FormulaField expression="[total_sqft]/[BHK]" field="per_room_sqft" size="4" type="Float" />
+          </FormulaFields>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText><![CDATA[price_per_sqft = [price]*100000/[total_sqft]
+per_room_sqft = [total_sqft]/[BHK]
+]]></DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFormula" />
+    </Node>
+    <Node ToolID="19">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.Filter.Filter">
+        <Position x="930" y="90" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <Expression>[per_room_sqft]&gt;=400 &amp;&amp; [price_per_sqft]&lt;=9000 &amp;&amp; [price_per_sqft]&gt;=3500</Expression>
+          <Mode>Custom</Mode>
+          <Simple>
+            <Operator>=</Operator>
+            <Field>
+            </Field>
+            <Operands>
+              <IgnoreTimeInDateTime>True</IgnoreTimeInDateTime>
+              <DateType>fixed</DateType>
+              <PeriodDate>2020-01-14 00:19:45</PeriodDate>
+              <PeriodType>
+              </PeriodType>
+              <PeriodCount>0</PeriodCount>
+              <Operand>
+              </Operand>
+              <StartDate>2020-01-14 00:19:45</StartDate>
+              <EndDate>2020-01-14 00:19:45</EndDate>
+            </Operands>
+          </Simple>
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>[per_room_sqft]&gt;=400 &amp;&amp; [price_per_sqft]&lt;=9000 &amp;&amp; [price_per_sqft]&gt;=3500</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxFilter" />
+    </Node>
+    <Node ToolID="20">
+      <GuiSettings Plugin="AlteryxBasePluginsGui.DbFileOutput.DbFileOutput">
+        <Position x="1038" y="54" />
+      </GuiSettings>
+      <Properties>
+        <Configuration>
+          <File MaxRecords="" FileFormat="0">C:\Users\NEHA LAKHANI\Documents\ML Project\Bengaluru_House_Data.csv</File>
+          <Passwords />
+          <FormatSpecificOptions>
+            <LineEndStyle>CRLF</LineEndStyle>
+            <Delimeter>,</Delimeter>
+            <ForceQuotes>False</ForceQuotes>
+            <HeaderRow>True</HeaderRow>
+            <CodePage>28591</CodePage>
+            <WriteBOM>True</WriteBOM>
+          </FormatSpecificOptions>
+          <MultiFile value="False" />
+        </Configuration>
+        <Annotation DisplayMode="0">
+          <Name />
+          <DefaultAnnotationText>Bengaluru_House_Data.csv</DefaultAnnotationText>
+          <Left value="False" />
+        </Annotation>
+        <Dependencies>
+          <Implicit />
+        </Dependencies>
+      </Properties>
+      <EngineSettings EngineDll="AlteryxBasePluginsEngine.dll" EngineDllEntryPoint="AlteryxDbFileOutput" />
+    </Node>
+  </Nodes>
+  <Connections>
+    <Connection>
+      <Origin ToolID="1" Connection="Output" />
+      <Destination ToolID="15" Connection="Input2" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="9" Connection="Output" />
+      <Destination ToolID="18" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="10" Connection="Output" />
+      <Destination ToolID="11" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="11" Connection="Output" />
+      <Destination ToolID="12" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="12" Connection="Output" />
+      <Destination ToolID="13" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="13" Connection="True" />
+      <Destination ToolID="14" Connection="Targets" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="14" Connection="Output" />
+      <Destination ToolID="9" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="15" Connection="Output26" />
+      <Destination ToolID="10" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="17" Connection="Output" />
+      <Destination ToolID="19" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="18" Connection="Output" />
+      <Destination ToolID="17" Connection="Input" />
+    </Connection>
+    <Connection>
+      <Origin ToolID="19" Connection="True" />
+      <Destination ToolID="20" Connection="Input" />
+    </Connection>
+  </Connections>
+  <Properties>
+    <Memory default="True" />
+    <GlobalRecordLimit value="0" />
+    <TempFiles default="True" />
+    <Annotation on="True" includeToolName="False" />
+    <ConvErrorLimit value="10" />
+    <ConvErrorLimit_Stop value="False" />
+    <CancelOnError value="False" />
+    <DisableBrowse value="False" />
+    <EnablePerformanceProfiling value="False" />
+    <DisableAllOutput value="False" />
+    <ShowAllMacroMessages value="False" />
+    <ShowConnectionStatusIsOn value="True" />
+    <ShowConnectionStatusOnlyWhenRunning value="True" />
+    <ZoomLevel value="0" />
+    <LayoutType>Horizontal</LayoutType>
+    <MetaInfo>
+      <NameIsFileName value="True" />
+      <Name>jpmc_project</Name>
+      <Description />
+      <RootToolName />
+      <ToolVersion />
+      <ToolInDb value="False" />
+      <CategoryName />
+      <SearchTags />
+      <Author />
+      <Company />
+      <Copyright />
+      <DescriptionLink actual="" displayed="" />
+      <Example>
+        <Description />
+        <File />
+      </Example>
+    </MetaInfo>
+    <Events>
+      <Enabled value="True" />
+    </Events>
+  </Properties>
+</AlteryxDocument>
